@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <%= csrf_meta_tag() %>
+
+  <!-- static css/js (phx.digest will produce fingerprinted files in prod) -->
+  <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
+  <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+
+  <title>Safitech</title>
+</head>
+<body>
+  <header>
+    <!-- small header, optional -->
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+  <main role="main">
+    <%= @inner_content %>
+  </main>
+
+  <footer>
+    <small>© Safitech</small>
+  </footer>
+</body>
+</html>

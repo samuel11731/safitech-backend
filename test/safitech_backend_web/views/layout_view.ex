@@ -1,6 +1,6 @@
 defmodule SafitechBackendWeb.LayoutView do
   use SafitechBackendWeb, :html
-  
+
   def flash_group(assigns) do
     SafitechBackendWeb.Layouts.flash_group(assigns)
   end

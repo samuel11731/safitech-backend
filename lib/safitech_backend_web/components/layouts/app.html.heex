@@ -1,0 +1,13 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Safitech Backend</title>
+  <%= Phoenix.HTML.Tag.csrf_meta_tag() %>
+  <%= Phoenix.HTML.Tag.link(rel: "stylesheet", href: ~p"/assets/app.css") %>
+</head>
+<body>
+  <%= @inner_content %>
+  <%= Phoenix.HTML.Tag.script(src: ~p"/assets/app.js") %>
+</body>
+</html>
+

@@ -1,0 +1,134 @@
+<style>
+  .admin-dashboard {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8fafc;
+    min-height: 100vh;
+  }
+
+  .admin-header {
+    background: #1f2937;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .admin-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #3b82f6;
+  }
+
+  .stat-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #6b7280;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-card p {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2937;
+  }
+
+  .quick-actions {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .quick-actions h2 {
+    margin: 0 0 1rem 0;
+    color: #1f2937;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+
+  .btn-danger {
+    background: #ef4444;
+  }
+
+  .btn-danger:hover {
+    background: #dc2626;
+  }
+
+  .btn-warning {
+    background: #f59e0b;
+  }
+
+  .btn-warning:hover {
+    background: #d97706;
+  }
+</style>
+
+<div class="admin-dashboard">
+  <div class="admin-header">
+    <h1>Safitech Admin</h1>
+    <div>
+      Welcome, Admin 
+      <form action="/admin/logout" method="post" style="display: inline;">
+  <input type="hidden" name="_csrf_token" value={get_csrf_token()}>
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Messages</h3>
+      <p><%= @messages_count %></p>
+    </div>
+    <div class="stat-card">
+      <h3>Unread Messages</h3>
+      <p><%= @unread_count %></p>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <h2>Quick Actions</h2>
+    <a href="/admin/messages" class="btn">View All Messages →</a>
+    <a href="/admin/messages?filter=unread" class="btn btn-warning">View Unread Messages</a>
+  </div>
+</div>

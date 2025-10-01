@@ -1,0 +1,16 @@
+{
+  "name": "safitech_assets",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild js/app.js --bundle --target=es2017 --outdir=../priv/static/assets",
+    "watch": "esbuild js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@heroicons/vue": "^2.2.0",
+    "esbuild": "^0.25.10",
+    "heroicons": "^2.2.0"
+  }
+}

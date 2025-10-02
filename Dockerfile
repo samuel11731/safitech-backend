@@ -30,11 +30,13 @@ RUN mix deps.get --only prod && mix deps.compile
 # Copy the rest of the app
 COPY . .
 
-# Build assets (JS/CSS) with npm + mix
-RUN cd assets && npm install && npm run deploy
+# Install JS dependencies
+RUN cd assets && npm install
+
+# Build Phoenix assets (JS + CSS)
 RUN mix assets.deploy
 
-# Compile app + build release
+# Compile Elixir code and build release
 RUN mix compile
 RUN mix release
 
@@ -60,6 +62,3 @@ EXPOSE 4000
 
 # Run the release
 CMD ["./safitech_backend/bin/safitech_backend", "start"]
-# Build assets (JS/CSS)
-RUN cd assets && npm install
-RUN mix assets.deploy

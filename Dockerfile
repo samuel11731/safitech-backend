@@ -60,3 +60,6 @@ EXPOSE 4000
 
 # Run the release
 CMD ["./safitech_backend/bin/safitech_backend", "start"]
+# Build assets (JS/CSS)
+RUN cd assets && npm install
+RUN mix assets.deploy

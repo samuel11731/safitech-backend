@@ -1,4 +1,5 @@
-FROM hexpm/elixir:1.17.3-erlang-27.2.2-debian-bookworm-20240918
+FROM FROM hexpm/elixir:1.17.3-erlang-27.3.2-debian-bookworm-20250317
+
 
 RUN apt-get update && apt-get install -y postgresql-client
 
